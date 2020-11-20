@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import com.example.a20201116g_versioncontrol.model.registrationsInformation.RegistrationsInformationController;
 import com.example.a20201116g_versioncontrol.model.version.VersionController;
 import com.example.a20201116g_versioncontrol.model.version.VersionModel;
 import com.example.a20201116g_versioncontrol.model.version.VersionProcessor;
@@ -40,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void checkServerData() {
+
+        RegistrationsInformationController registrationsInformationController = new RegistrationsInformationController();
+
 
         TaskCheckVersions taskCheckVersions = new TaskCheckVersions();
 
