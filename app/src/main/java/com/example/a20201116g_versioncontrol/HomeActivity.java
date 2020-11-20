@@ -2,12 +2,15 @@ package com.example.a20201116g_versioncontrol;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.a20201116g_versioncontrol.model.registrationsInformation.RegistrationsInformationController;
 import com.example.a20201116g_versioncontrol.model.version.VersionController;
+
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -33,6 +36,14 @@ public class HomeActivity extends AppCompatActivity {
 
         this.registrationsInformationController = new RegistrationsInformationController(applicationContext);
         this.jsonOutput.setText(registrationsInformationController.getRegistrationsJson());
+
+        ArrayList<String> arrayList = registrationsInformationController.getListEventCodes();
+        for (int i = 0; i < arrayList.size(); i++) {
+
+            String eventName = registrationsInformationController.getInformationString("eventNameLong", arrayList.get(i));
+            Log.d("CodeList123: ",arrayList.get(i) + " - " + eventName);
+
+        }
 
 
     }

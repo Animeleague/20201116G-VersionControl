@@ -76,6 +76,20 @@ public class RegistrationsInformationController {
 
     }
 
+    public ArrayList<String> getListEventCodes() {
+
+        ArrayList<String> arrayList = new ArrayList<String>();
+
+        if (hasData == true) {
+            for (int i = 0; i < registrationsInformationModelList.size(); i++) {
+                String dataToAdd = registrationsInformationModelList.get(i).getEventUniqueCode();
+                arrayList.add(dataToAdd);
+            }
+        }
+
+        return arrayList;
+    }
+
     public String getRegistrationsJson() {
         return registrationsJson;
     }
@@ -86,16 +100,54 @@ public class RegistrationsInformationController {
     }
 
     // Get a value for a unique event
-    public String getEventName(String eventCode) {
+    public String getInformationString(String dataRequest, String eventCode) {
         // Take the event code, process the array until we find it, then get the eventName from the object
+        String returnData = "";
 
-        //RegistrationsInformationModel registrationsInformationModel = new RegistrationsInformationModel();
-        //registrationsInformationModelList.add(registrationsInformationModel);
-        //Log.d("Array Size: ", String.valueOf(registrationsInformationModelList.size()));
-        //registrationsInformationModelList.get(0).setEventUniqueCode("TEST Code");
-        //Log.d("Array Code: ", registrationsInformationModelList.get(0).getEventUniqueCode());
+        if (hasData == true) {
 
-        return null;
+            for (int i = 0; i < registrationsInformationModelList.size(); i++) {
+                if (registrationsInformationModelList.get(i).getEventUniqueCode().equals(eventCode)) {
+
+                    switch (dataRequest) {
+                        case "eventUniqueCode":
+                            returnData = registrationsInformationModelList.get(i).getEventUniqueCode();
+                            break;
+                        case "eventLocationCode":
+                            returnData = registrationsInformationModelList.get(i).getEventLocationCode();
+                            break;
+                        case "eventWebsite":
+                            returnData = registrationsInformationModelList.get(i).getEventWebsite();
+                            break;
+                        case "eventName":
+                            returnData = registrationsInformationModelList.get(i).getEventName();
+                            break;
+                        case "eventNameLong":
+                            returnData = registrationsInformationModelList.get(i).getEventNameLong();
+                            break;
+                        case "eventAddress":
+                            returnData = registrationsInformationModelList.get(i).getEventAddress();
+                            break;
+                        case "eventPaymentDeadline":
+                            returnData = registrationsInformationModelList.get(i).getEventPaymentDeadline();
+                            break;
+                        case "eventDatesString":
+                            returnData = registrationsInformationModelList.get(i).getEventDatesString();
+                            break;
+                        case "eventStartDate":
+                            returnData = registrationsInformationModelList.get(i).getEventStartDate();
+                            break;
+                        case "eventEndDate":
+                            returnData = registrationsInformationModelList.get(i).getEventEndDate();
+                            break;
+                        default:
+                            returnData = "";
+                            break;
+                    }
+                }
+            }
+        }
+        return returnData;
     }
 
 

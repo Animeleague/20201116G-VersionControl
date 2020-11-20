@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
         RegistrationsInformationController registrationsInformationController = new RegistrationsInformationController(applicationContext);
         if (!registrationsInformationController.getHasData()) {
-            Log.d("123RegistrationsInfo: ", "No registrations data is saved. Getting that now!");
             registrationsInformationController.setRegistrationsJson(loadDummyRegistrationsFile()); // Set some initial data
+            //Log.d("123RegistrationsInfo: ", "No registrations data is saved. Getting that now!");
+
         } else {
-            Log.d("123RegistrationsInfo: ", "We have data");
-            //registrationsInformationController.setRegistrationsJson(loadDummyRegistrationsFile()); // Set some initial data
+            //Log.d("123RegistrationsInfo: ", "We have data");
         }
 
         checkServerData();
