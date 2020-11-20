@@ -76,6 +76,10 @@ public class RegistrationsInformationController {
 
     }
 
+    public String getRegistrationsJson() {
+        return registrationsJson;
+    }
+
     // List of Active Event Codes. We need these so we can process and get values for each unique event
     public List getUniqueCode() {
         return null;

@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             registrationsInformationController.setRegistrationsJson(loadDummyRegistrationsFile()); // Set some initial data
         } else {
             Log.d("123RegistrationsInfo: ", "We have data");
-            registrationsInformationController.setRegistrationsJson(loadDummyRegistrationsFile()); // Set some initial data
+            //registrationsInformationController.setRegistrationsJson(loadDummyRegistrationsFile()); // Set some initial data
         }
 
         checkServerData();
