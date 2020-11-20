@@ -23,30 +23,45 @@ public class RegistrationsInformationController {
     public RegistrationsInformationController(Context applicationContext) {
 
         this.applicationContext = applicationContext;
-        this.hasData = false;
+        hasData = false;
 
         //registrationsInformationModelList = new ArrayList<RegistrationsInformationModel>();
-        this.registrationsJson = readRegistrationsJson();
+        registrationsJson = readRegistrationsJson();
 
-        if (this.registrationsJson.isEmpty() || this.registrationsJson.equals("")) {
+        if (registrationsJson == null || registrationsJson.isEmpty() || registrationsJson.equals("")) {
             // Empty! We have no data on the file system. Do nothing
         } else {
             // We have data! Process it
-            this.registrationsInformationModelList = getRegistrationsArray(this.registrationsJson);
-            this.hasData = true;
+            registrationsInformationModelList = getRegistrationsArray(registrationsJson);
+            hasData = true;
         }
 
     }
 
+    public RegistrationsInformationController(Context applicationContext, String registrationsJson) {
+        this.applicationContext = applicationContext;
+        this.registrationsJson = registrationsJson;
+        setRegistrationsJson(this.registrationsJson);
+        hasData = false;
+
+        if (registrationsJson.isEmpty() || registrationsJson.equals("")) {
+            // Empty! We have no data on the file system. Do nothing
+        } else {
+            // We have data! Process it
+            registrationsInformationModelList = getRegistrationsArray(registrationsJson);
+            hasData = true;
+        }
+    }
+
     public Boolean getHasData() {
-        return this.hasData;
+        return hasData;
     }
 
     public void setRegistrationsJson(String registrationsJson) {
 
         this.registrationsJson = registrationsJson;
-        writeRegistrationsJson(this.registrationsJson);
-        this.registrationsInformationModelList = getRegistrationsArray(this.registrationsJson);
+        writeRegistrationsJson(registrationsJson);
+        registrationsInformationModelList = getRegistrationsArray(registrationsJson);
 
     }
 
@@ -83,7 +98,7 @@ public class RegistrationsInformationController {
     public void writeRegistrationsJson(String registrationsJson) {
         // A new JSON has been received from the server. Set this to the app storage.
         try {
-            FileOutputStream fileOutputStream = this.applicationContext.openFileOutput("RegistrationsInformation", Context.MODE_PRIVATE);
+            FileOutputStream fileOutputStream = applicationContext.openFileOutput("RegistrationsInformation", Context.MODE_PRIVATE);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(registrationsJson);
         } catch (Exception ex) {
@@ -96,7 +111,7 @@ public class RegistrationsInformationController {
         String registrationsJson = "";
         try {
 
-            FileInputStream fileInputStream = this.applicationContext.openFileInput("RegistrationsInformation");
+            FileInputStream fileInputStream = applicationContext.openFileInput("RegistrationsInformation");
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             registrationsJson = (String) objectInputStream.readObject();
 
