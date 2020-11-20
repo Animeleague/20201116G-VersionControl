@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkServerData() {
 
-        RegistrationsInformationController registrationsInformationController = new RegistrationsInformationController();
+        RegistrationsInformationController registrationsInformationController = new RegistrationsInformationController(this.applicationContext);
 
 
         TaskCheckVersions taskCheckVersions = new TaskCheckVersions();
