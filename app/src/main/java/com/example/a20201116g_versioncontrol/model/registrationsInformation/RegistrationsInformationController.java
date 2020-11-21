@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.example.a20201116g_versioncontrol.model.registrationsInformation.RegistrationsInformationModel;
+import com.example.a20201116g_versioncontrol.constants.JsonConstants;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -44,7 +45,7 @@ public class RegistrationsInformationController {
         setRegistrationsJson(this.registrationsJson);
         hasData = false;
 
-        if (registrationsJson.isEmpty() || registrationsJson.equals("")) {
+        if (registrationsJson == null || registrationsJson.isEmpty() || registrationsJson.equals("")) {
             // Empty! We have no data on the file system. Do nothing
         } else {
             // We have data! Process it
@@ -110,38 +111,135 @@ public class RegistrationsInformationController {
                 if (registrationsInformationModelList.get(i).getEventUniqueCode().equals(eventCode)) {
 
                     switch (dataRequest) {
-                        case "eventUniqueCode":
-                            returnData = registrationsInformationModelList.get(i).getEventUniqueCode();
+                        case JsonConstants.EVENT_ID:
+                            returnData = (String) registrationsInformationModelList.get(i).getEventUniqueCode();
                             break;
-                        case "eventLocationCode":
-                            returnData = registrationsInformationModelList.get(i).getEventLocationCode();
+                        case JsonConstants.EVENT_LOCATION_CODE:
+                            returnData = (String) registrationsInformationModelList.get(i).getEventLocationCode();
                             break;
-                        case "eventWebsite":
-                            returnData = registrationsInformationModelList.get(i).getEventWebsite();
+                        case JsonConstants.EVENT_WEBSITE:
+                            returnData = (String) registrationsInformationModelList.get(i).getEventWebsite();
                             break;
-                        case "eventName":
-                            returnData = registrationsInformationModelList.get(i).getEventName();
+                        case JsonConstants.EVENT_NAME:
+                            returnData = (String) registrationsInformationModelList.get(i).getEventName();
                             break;
-                        case "eventNameLong":
-                            returnData = registrationsInformationModelList.get(i).getEventNameLong();
+                        case JsonConstants.EVENT_NAME_LONG:
+                            returnData = (String) registrationsInformationModelList.get(i).getEventNameLong();
                             break;
-                        case "eventAddress":
-                            returnData = registrationsInformationModelList.get(i).getEventAddress();
+                        case JsonConstants.EVENT_ADDRESS:
+                            returnData = (String) registrationsInformationModelList.get(i).getEventAddress();
                             break;
-                        case "eventPaymentDeadline":
-                            returnData = registrationsInformationModelList.get(i).getEventPaymentDeadline();
+                        case JsonConstants.EVENT_PAYMENT_DEADLINE:
+                            returnData = (String) registrationsInformationModelList.get(i).getEventPaymentDeadline();
                             break;
-                        case "eventDatesString":
-                            returnData = registrationsInformationModelList.get(i).getEventDatesString();
+                        case JsonConstants.EVENT_DATES_STRING:
+                            returnData = (String) registrationsInformationModelList.get(i).getEventDatesString();
                             break;
-                        case "eventStartDate":
-                            returnData = registrationsInformationModelList.get(i).getEventStartDate();
+                        case JsonConstants.EVENT_START_DATE:
+                            returnData = (String) registrationsInformationModelList.get(i).getEventStartDate();
                             break;
-                        case "eventEndDate":
-                            returnData = registrationsInformationModelList.get(i).getEventEndDate();
+                        case JsonConstants.EVENT_END_DATE:
+                            returnData = (String) registrationsInformationModelList.get(i).getEventEndDate();
                             break;
                         default:
                             returnData = "";
+                            break;
+                    }
+                }
+            }
+        }
+        return returnData;
+    }
+
+    public Integer getInformationInteger(String dataRequest, String eventCode) {
+
+        Integer returnData = 0;
+
+        if (hasData == true) {
+
+            for (int i = 0; i < registrationsInformationModelList.size(); i++) {
+                if (registrationsInformationModelList.get(i).getEventUniqueCode().equals(eventCode)) {
+                    switch (dataRequest) {
+                        case JsonConstants.EVENT_ID:
+                            returnData = (Integer) registrationsInformationModelList.get(i).getEventID();
+                            break;
+                        default:
+                            returnData = 0;
+                            break;
+                    }
+                }
+            }
+        }
+        return returnData;
+    }
+
+    public Boolean getInformationBoolean(String dataRequest, String eventCode) {
+
+        Boolean returnData = false;
+
+        if (hasData == true) {
+
+            for (int i = 0; i < registrationsInformationModelList.size(); i++) {
+                if (registrationsInformationModelList.get(i).getEventUniqueCode().equals(eventCode)) {
+                    switch (dataRequest) {
+                        case JsonConstants.EVENT_HAS_FULL_ENTRY:
+                            returnData = (Boolean) registrationsInformationModelList.get(i).getEventHasFullEntry();
+                            break;
+                        case JsonConstants.EVENT_HAS_FRIDAY :
+                            returnData = (Boolean) registrationsInformationModelList.get(i).getEventHasFriday();
+                            break;
+                        case JsonConstants.EVENT_HAS_SATURDAY:
+                            returnData = (Boolean) registrationsInformationModelList.get(i).getEventHasSaturday();
+                            break;
+                        case JsonConstants.EVENT_VIP_STATUS:
+                            returnData = (Boolean) registrationsInformationModelList.get(i).getEventVIPStatus();
+                            break;
+                        default:
+                            returnData = false;
+                            break;
+                    }
+                }
+            }
+
+        }
+        return returnData;
+    }
+
+    public Double getInformationDouble(String dataRequest, String eventCode) {
+
+        Double returnData = 0.0;
+
+        if (hasData == true) {
+
+            for (int i = 0; i < registrationsInformationModelList.size(); i++) {
+                if (registrationsInformationModelList.get(i).getEventUniqueCode().equals(eventCode)) {
+                    switch (dataRequest) {
+                        case JsonConstants.EVENT_COST_FULL_ENTRY:
+                            returnData = (Double) registrationsInformationModelList.get(i).getEventCostFullEntry();
+                            break;
+                        case JsonConstants.EVENT_COST_FRIDAY:
+                            returnData = (Double) registrationsInformationModelList.get(i).getEventCostFriday();
+                            break;
+                        case JsonConstants.EVENT_COST_SATURDAY:
+                            returnData = (Double) registrationsInformationModelList.get(i).getEventCostSaturday();
+                            break;
+                        case JsonConstants.EVENT_COST_SUNDAY:
+                            returnData = (Double) registrationsInformationModelList.get(i).getEventCostSunday();
+                            break;
+                        case JsonConstants.EVENT_COST_TSHIRT:
+                            returnData = (Double) registrationsInformationModelList.get(i).getEventTShirtCost();
+                            break;
+                        case JsonConstants.EVENT_COST_MASK:
+                            returnData = (Double) registrationsInformationModelList.get(i).getEventMaskCost();
+                            break;
+                        case JsonConstants.EVENT_COST_PRIORITY:
+                            returnData = (Double) registrationsInformationModelList.get(i).getEventCostPriority();
+                            break;
+                        case JsonConstants.EVENT_COST_VIP:
+                            returnData = (Double) registrationsInformationModelList.get(i).getEventVIPCost();
+                            break;
+                        default:
+                            returnData = 0.0;
                             break;
                     }
                 }

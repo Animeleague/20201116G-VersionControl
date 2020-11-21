@@ -1,5 +1,7 @@
 package com.example.a20201116g_versioncontrol.model.registrationsInformation;
 
+import com.example.a20201116g_versioncontrol.constants.JsonConstants;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -36,22 +38,22 @@ public class RegistrationsInformationProcessor {
                     JSONObject jsonObject = (JSONObject) jsonArray.getJSONObject(i);
 
                     // Now make a registrations object and add the data to it
-                    Integer eventID = (Integer) jsonObject.getInt("eventID");
-                    String eventUniqueCode = (String) jsonObject.getString("eventUniqueCode");
-                    String eventLocationCode = (String) jsonObject.getString("eventLocationCode");
-                    String eventWebsite = (String) jsonObject.getString("eventWebsite");
-                    String eventName = (String) jsonObject.getString("eventName");
-                    String eventNameLong = (String) jsonObject.getString("eventNameLong");
-                    String eventAddress = (String) jsonObject.getString("eventAddress");
-                    String eventPaymentDeadline = (String) jsonObject.getString("eventPaymentDeadline");
-                    String eventDatesString = (String) jsonObject.getString("eventDatesString");
-                    String eventStartDate = (String) jsonObject.getString("eventStartDate");
-                    String eventEndDate = (String) jsonObject.getString("eventEndDate");
+                    Integer eventID = (Integer) jsonObject.getInt(JsonConstants.EVENT_ID);
+                    String eventUniqueCode = (String) jsonObject.getString(JsonConstants.EVENT_UNIQUE_CODE);
+                    String eventLocationCode = (String) jsonObject.getString(JsonConstants.EVENT_LOCATION_CODE);
+                    String eventWebsite = (String) jsonObject.getString(JsonConstants.EVENT_WEBSITE);
+                    String eventName = (String) jsonObject.getString(JsonConstants.EVENT_NAME);
+                    String eventNameLong = (String) jsonObject.getString(JsonConstants.EVENT_NAME_LONG);
+                    String eventAddress = (String) jsonObject.getString(JsonConstants.EVENT_ADDRESS);
+                    String eventPaymentDeadline = (String) jsonObject.getString(JsonConstants.EVENT_PAYMENT_DEADLINE);
+                    String eventDatesString = (String) jsonObject.getString(JsonConstants.EVENT_DATES_STRING);
+                    String eventStartDate = (String) jsonObject.getString(JsonConstants.EVENT_START_DATE);
+                    String eventEndDate = (String) jsonObject.getString(JsonConstants.EVENT_END_DATE);
 
-                    String eventHasFullEntryString = (String) jsonObject.getString("eventHasFullEntry");
-                    String eventHasFridayString = (String) jsonObject.getString("eventHasFriday");
-                    String eventHasSaturdayString = (String) jsonObject.getString("eventHasSaturday");
-                    String eventVIPStatusString = (String) jsonObject.getString("eventVIPStatus");
+                    String eventHasFullEntryString = (String) jsonObject.getString(JsonConstants.EVENT_HAS_FULL_ENTRY);
+                    String eventHasFridayString = (String) jsonObject.getString(JsonConstants.EVENT_HAS_FRIDAY);
+                    String eventHasSaturdayString = (String) jsonObject.getString(JsonConstants.EVENT_HAS_SATURDAY);
+                    String eventVIPStatusString = (String) jsonObject.getString(JsonConstants.EVENT_VIP_STATUS);
                     Boolean eventHasFullEntry = false;
                     Boolean eventHasFriday = false;
                     Boolean eventHasSaturday = false;
@@ -62,14 +64,14 @@ public class RegistrationsInformationProcessor {
                     if (eventHasSaturdayString.equals("1")) { eventHasSaturday = true; }
                     if (eventVIPStatusString.equals("1")) { eventVIPStatus = true; }
 
-                    Double eventCostFullEntry = (Double) jsonObject.getDouble("eventCostFullEntry");
-                    Double eventCostFriday = (Double) jsonObject.getDouble("eventCostFriday");
-                    Double eventCostSaturday = (Double) jsonObject.getDouble("eventCostSaturday");
-                    Double eventCostSunday = (Double) jsonObject.getDouble("eventCostSunday");
-                    Double eventTShirtCost = (Double) jsonObject.getDouble("eventTShirtCost");
-                    Double eventMaskCost = (Double) jsonObject.getDouble("eventMaskCost");
-                    Double eventCostPriority = (Double) jsonObject.getDouble("eventCostPriority");
-                    Double eventVIPCost = (Double) jsonObject.getDouble("eventVIPCost");
+                    Double eventCostFullEntry = (Double) jsonObject.getDouble(JsonConstants.EVENT_COST_FULL_ENTRY);
+                    Double eventCostFriday = (Double) jsonObject.getDouble(JsonConstants.EVENT_COST_FRIDAY);
+                    Double eventCostSaturday = (Double) jsonObject.getDouble(JsonConstants.EVENT_COST_SATURDAY);
+                    Double eventCostSunday = (Double) jsonObject.getDouble(JsonConstants.EVENT_COST_SUNDAY);
+                    Double eventTShirtCost = (Double) jsonObject.getDouble(JsonConstants.EVENT_COST_TSHIRT);
+                    Double eventMaskCost = (Double) jsonObject.getDouble(JsonConstants.EVENT_COST_MASK);
+                    Double eventCostPriority = (Double) jsonObject.getDouble(JsonConstants.EVENT_COST_PRIORITY);
+                    Double eventVIPCost = (Double) jsonObject.getDouble(JsonConstants.EVENT_COST_VIP);
 
                     // Set all the variables to the new object
                     registrationsInformationModel.setEventID(eventID);
