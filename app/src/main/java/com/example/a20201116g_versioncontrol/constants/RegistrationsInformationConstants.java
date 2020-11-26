@@ -1,6 +1,6 @@
 package com.example.a20201116g_versioncontrol.constants;
 
-public class JsonConstants {
+public class RegistrationsInformationConstants {
 
     // Registrations Constants. From the RegistrationsInformation json on the server...
     // Variable used to keep consistancy and prevent errors.

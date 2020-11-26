@@ -2,17 +2,11 @@ package com.example.a20201116g_versioncontrol;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.a20201116g_versioncontrol.constants.JsonConstants;
 import com.example.a20201116g_versioncontrol.model.registrationsInformation.RegistrationsInformationController;
 import com.example.a20201116g_versioncontrol.model.version.VersionController;
-
-import java.text.DecimalFormat;
-import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 

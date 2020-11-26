@@ -1,10 +1,8 @@
 package com.example.a20201116g_versioncontrol.model.registrationsInformation;
 
 import android.content.Context;
-import android.util.Log;
 
-import com.example.a20201116g_versioncontrol.model.registrationsInformation.RegistrationsInformationModel;
-import com.example.a20201116g_versioncontrol.constants.JsonConstants;
+import com.example.a20201116g_versioncontrol.constants.RegistrationsInformationConstants;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -111,34 +109,34 @@ public class RegistrationsInformationController {
                 if (registrationsInformationModelList.get(i).getEventUniqueCode().equals(eventCode)) {
 
                     switch (dataRequest) {
-                        case JsonConstants.EVENT_ID:
+                        case RegistrationsInformationConstants.EVENT_ID:
                             returnData = (String) registrationsInformationModelList.get(i).getEventUniqueCode();
                             break;
-                        case JsonConstants.EVENT_LOCATION_CODE:
+                        case RegistrationsInformationConstants.EVENT_LOCATION_CODE:
                             returnData = (String) registrationsInformationModelList.get(i).getEventLocationCode();
                             break;
-                        case JsonConstants.EVENT_WEBSITE:
+                        case RegistrationsInformationConstants.EVENT_WEBSITE:
                             returnData = (String) registrationsInformationModelList.get(i).getEventWebsite();
                             break;
-                        case JsonConstants.EVENT_NAME:
+                        case RegistrationsInformationConstants.EVENT_NAME:
                             returnData = (String) registrationsInformationModelList.get(i).getEventName();
                             break;
-                        case JsonConstants.EVENT_NAME_LONG:
+                        case RegistrationsInformationConstants.EVENT_NAME_LONG:
                             returnData = (String) registrationsInformationModelList.get(i).getEventNameLong();
                             break;
-                        case JsonConstants.EVENT_ADDRESS:
+                        case RegistrationsInformationConstants.EVENT_ADDRESS:
                             returnData = (String) registrationsInformationModelList.get(i).getEventAddress();
                             break;
-                        case JsonConstants.EVENT_PAYMENT_DEADLINE:
+                        case RegistrationsInformationConstants.EVENT_PAYMENT_DEADLINE:
                             returnData = (String) registrationsInformationModelList.get(i).getEventPaymentDeadline();
                             break;
-                        case JsonConstants.EVENT_DATES_STRING:
+                        case RegistrationsInformationConstants.EVENT_DATES_STRING:
                             returnData = (String) registrationsInformationModelList.get(i).getEventDatesString();
                             break;
-                        case JsonConstants.EVENT_START_DATE:
+                        case RegistrationsInformationConstants.EVENT_START_DATE:
                             returnData = (String) registrationsInformationModelList.get(i).getEventStartDate();
                             break;
-                        case JsonConstants.EVENT_END_DATE:
+                        case RegistrationsInformationConstants.EVENT_END_DATE:
                             returnData = (String) registrationsInformationModelList.get(i).getEventEndDate();
                             break;
                         default:
@@ -160,7 +158,7 @@ public class RegistrationsInformationController {
             for (int i = 0; i < registrationsInformationModelList.size(); i++) {
                 if (registrationsInformationModelList.get(i).getEventUniqueCode().equals(eventCode)) {
                     switch (dataRequest) {
-                        case JsonConstants.EVENT_ID:
+                        case RegistrationsInformationConstants.EVENT_ID:
                             returnData = (Integer) registrationsInformationModelList.get(i).getEventID();
                             break;
                         default:
@@ -182,16 +180,16 @@ public class RegistrationsInformationController {
             for (int i = 0; i < registrationsInformationModelList.size(); i++) {
                 if (registrationsInformationModelList.get(i).getEventUniqueCode().equals(eventCode)) {
                     switch (dataRequest) {
-                        case JsonConstants.EVENT_HAS_FULL_ENTRY:
+                        case RegistrationsInformationConstants.EVENT_HAS_FULL_ENTRY:
                             returnData = (Boolean) registrationsInformationModelList.get(i).getEventHasFullEntry();
                             break;
-                        case JsonConstants.EVENT_HAS_FRIDAY :
+                        case RegistrationsInformationConstants.EVENT_HAS_FRIDAY :
                             returnData = (Boolean) registrationsInformationModelList.get(i).getEventHasFriday();
                             break;
-                        case JsonConstants.EVENT_HAS_SATURDAY:
+                        case RegistrationsInformationConstants.EVENT_HAS_SATURDAY:
                             returnData = (Boolean) registrationsInformationModelList.get(i).getEventHasSaturday();
                             break;
-                        case JsonConstants.EVENT_VIP_STATUS:
+                        case RegistrationsInformationConstants.EVENT_VIP_STATUS:
                             returnData = (Boolean) registrationsInformationModelList.get(i).getEventVIPStatus();
                             break;
                         default:
@@ -214,28 +212,28 @@ public class RegistrationsInformationController {
             for (int i = 0; i < registrationsInformationModelList.size(); i++) {
                 if (registrationsInformationModelList.get(i).getEventUniqueCode().equals(eventCode)) {
                     switch (dataRequest) {
-                        case JsonConstants.EVENT_COST_FULL_ENTRY:
+                        case RegistrationsInformationConstants.EVENT_COST_FULL_ENTRY:
                             returnData = (Double) registrationsInformationModelList.get(i).getEventCostFullEntry();
                             break;
-                        case JsonConstants.EVENT_COST_FRIDAY:
+                        case RegistrationsInformationConstants.EVENT_COST_FRIDAY:
                             returnData = (Double) registrationsInformationModelList.get(i).getEventCostFriday();
                             break;
-                        case JsonConstants.EVENT_COST_SATURDAY:
+                        case RegistrationsInformationConstants.EVENT_COST_SATURDAY:
                             returnData = (Double) registrationsInformationModelList.get(i).getEventCostSaturday();
                             break;
-                        case JsonConstants.EVENT_COST_SUNDAY:
+                        case RegistrationsInformationConstants.EVENT_COST_SUNDAY:
                             returnData = (Double) registrationsInformationModelList.get(i).getEventCostSunday();
                             break;
-                        case JsonConstants.EVENT_COST_TSHIRT:
+                        case RegistrationsInformationConstants.EVENT_COST_TSHIRT:
                             returnData = (Double) registrationsInformationModelList.get(i).getEventTShirtCost();
                             break;
-                        case JsonConstants.EVENT_COST_MASK:
+                        case RegistrationsInformationConstants.EVENT_COST_MASK:
                             returnData = (Double) registrationsInformationModelList.get(i).getEventMaskCost();
                             break;
-                        case JsonConstants.EVENT_COST_PRIORITY:
+                        case RegistrationsInformationConstants.EVENT_COST_PRIORITY:
                             returnData = (Double) registrationsInformationModelList.get(i).getEventCostPriority();
                             break;
-                        case JsonConstants.EVENT_COST_VIP:
+                        case RegistrationsInformationConstants.EVENT_COST_VIP:
                             returnData = (Double) registrationsInformationModelList.get(i).getEventVIPCost();
                             break;
                         default:
